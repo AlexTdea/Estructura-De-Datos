@@ -8,6 +8,10 @@ public class ListaSimple {
 
     public ListaSimple() {
         Cab = null;
+
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        this.insertar(numbers);
     }
 
     public void insertarInicio(int dato) {
@@ -62,18 +66,59 @@ public class ListaSimple {
     }
 
     public void EliminarDato(int dato) {
-        if (Cab != null) {
+        if (Cab == null) {
+            JOptionPane.showConfirmDialog(null, "Lista Vacia");
+        } else {
             Nodo aux = Cab;
-            Nodo aux2 = Cab;
+            Nodo aux2 = null;
+            boolean flag = false;
 
-            while (aux.getDato() != dato) {
+            while (aux != null && flag == false) {
                 if (aux.getDato() == dato) {
-                    aux2.setLiga(aux.getLiga());
+                    flag = true;
                 } else {
                     aux2 = aux;
                     aux = aux.getLiga();
                 }
             }
+
+            if (flag == false) {
+                JOptionPane.showInputDialog(null, "No se encontró el dato");
+            } else {
+                if (aux.getDato() == this.Cab.getDato()) {
+                    this.Cab = this.Cab.getLiga();
+                } else {
+                    aux2.setLiga(aux.getLiga());
+                }
+            }
+
+            aux2.setLiga(aux.getLiga());
+        }
+    }
+
+    // delete all nodes from a linked list
+    public void deleteList() {
+        Cab = null;
+    }
+
+    // delete penultimate node
+    public void deletePenultimate() {
+        if (Cab != null) {
+            Nodo aux = Cab;
+            Nodo aux2 = Cab;
+            while (aux.getLiga() != null) {
+                aux2 = aux;
+                aux = aux.getLiga();
+            }
+            aux2.setLiga(null);
+        }
+    }
+
+
+    // insert simple linked list by array
+    public void insertar(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            insertarFinal(array[i]);
         }
     }
 

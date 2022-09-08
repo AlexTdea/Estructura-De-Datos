@@ -66,16 +66,31 @@ public class ListaSimple {
     }
 
     public void EliminarDato(int dato) {
-        if (Cab != null) {
+        if (Cab == null) {
+            JOptionPane.showConfirmDialog(null, "Lista Vacia");
+        } else {
             Nodo aux = Cab;
-            Nodo aux2 = Cab;
+            Nodo aux2 = null;
+            boolean flag = false;
 
-            while (aux.getDato() != dato) {
-                aux2 = aux;
-                aux = aux.getLiga();
+            while (aux != null && flag == false) {
+                if (aux.getDato() == dato) {
+                    flag = true;
+                } else {
+                    aux2 = aux;
+                    aux = aux.getLiga();
+                }
             }
 
-            aux2.setLiga(aux.getLiga());
+            if (flag == false) {
+                JOptionPane.showInputDialog(null, "No se encontró el dato");
+            } else {
+                if (aux.getDato() == this.Cab.getDato()) {
+                    this.Cab = this.Cab.getLiga();
+                } else {
+                    aux2.setLiga(aux.getLiga());
+                }
+            }
         }
     }
 
