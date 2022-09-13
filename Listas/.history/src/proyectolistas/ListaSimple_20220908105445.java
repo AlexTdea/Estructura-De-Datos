@@ -112,6 +112,7 @@ public class ListaSimple {
         }
     }
 
+
     // insert simple linked list by array
     public void insertar(int[] array) {
         for (int i = 0; i < array.length; i++) {
