@@ -14,7 +14,7 @@ public class ListaDoble {
     public ListaDoble(){
         this.head=this.tail = null;
 
-        int [] elm = {,2,3,4,5,6,7,8,9,10};
+        int [] elm = {1,2,3,4,5,6,7,8,9,10};
         this.llenarLista(elm);
     }
 
@@ -35,7 +35,7 @@ public class ListaDoble {
 
         String list = "";
         Nodo aux = head;
-        while (aux != null) {
+        while(aux != null) {
             list = list + "[" + aux.getDato() + "] <=>";
             aux = aux.getSiguiente();
         }
@@ -49,13 +49,13 @@ public class ListaDoble {
             return;
         }
 
-        Nodo actual = head.getSiguiente(); // NULL
-        int menor = head.getDato(); // 1
-        while (actual != null) {
-            if (actual.getDato() < menor) {
-                menor = actual.getDato();
+        Nodo aux = head;
+        int menor = aux.getDato();
+        while(aux != null) {
+            if (aux.getDato() < menor) {
+                menor = aux.getDato();
             }
-            actual = actual.getSiguiente();
+            aux = aux.getSiguiente();
         }
 
         if (menor % 2 != 0) {
@@ -70,7 +70,6 @@ public class ListaDoble {
         if (isEmpty() == true) {
             JOptionPane.showMessageDialog(null, "Lista vacia");
             return;
-
         }
 
         Nodo segundo = head.getSiguiente();
@@ -97,7 +96,7 @@ public class ListaDoble {
 
         Nodo ultimo = head;
         Nodo penultimo = null;
-        while (ultimo.getSiguiente() != null) {
+        while(ultimo.getSiguiente() != null) {
             penultimo = ultimo;
             ultimo = ultimo.getSiguiente();
         }
@@ -126,20 +125,4 @@ public class ListaDoble {
             insertar(data[i]);
         }
     }
-
-    public void pregunta2(int dato) {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
-            return;
-        }
-        Nodo actual1 = head.getSiguiente();
-        int menor1 = head.getDato();
-        while (actual1 != null) {
-            if (actual1.getDato() < menor1) {
-
-            }
-
-        }
-    }
-
 }

@@ -35,13 +35,14 @@ public class ListaDoble {
 
         String list = "";
         Nodo aux = head;
-        while (aux != null) {
+        while(aux != null) {
             list = list + "[" + aux.getDato() + "] <=>";
             aux = aux.getSiguiente();
         }
 
         return list;
     }
+
 
     public void pregunta1(int dato) {
         if (isEmpty() == true) {
@@ -51,7 +52,7 @@ public class ListaDoble {
 
         Nodo actual = head.getSiguiente(); // NULL
         int menor = head.getDato(); // 1
-        while (actual != null) {
+        while(actual != null) {
             if (actual.getDato() < menor) {
                 menor = actual.getDato();
             }
@@ -70,7 +71,6 @@ public class ListaDoble {
         if (isEmpty() == true) {
             JOptionPane.showMessageDialog(null, "Lista vacia");
             return;
-
         }
 
         Nodo segundo = head.getSiguiente();
@@ -97,7 +97,7 @@ public class ListaDoble {
 
         Nodo ultimo = head;
         Nodo penultimo = null;
-        while (ultimo.getSiguiente() != null) {
+        while(ultimo.getSiguiente() != null) {
             penultimo = ultimo;
             ultimo = ultimo.getSiguiente();
         }
@@ -126,20 +126,4 @@ public class ListaDoble {
             insertar(data[i]);
         }
     }
-
-    public void pregunta2(int dato) {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
-            return;
-        }
-        Nodo actual1 = head.getSiguiente();
-        int menor1 = head.getDato();
-        while (actual1 != null) {
-            if (actual1.getDato() < menor1) {
-
-            }
-
-        }
-    }
-
 }
