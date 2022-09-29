@@ -180,11 +180,9 @@ public class ListaDoble {
             return;
         } else {
             Nodo aux = second.getSiguiente().getSiguiente();
-            second.setSiguiente(aux);
 
-            if (aux != null) {
-                aux.setAnterior(second);
-            }
+            second.setSiguiente(aux);
+            aux.setAnterior(second);
         }
     }
 }

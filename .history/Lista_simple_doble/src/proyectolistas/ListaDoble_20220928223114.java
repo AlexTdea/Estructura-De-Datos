@@ -167,24 +167,28 @@ public class ListaDoble {
         size++;
     }
 
-    public void deleteAfterSecond() {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Empty List");
-            return;
-        }
+    // public void EliminarPenulto(int dato) {
+    //     Nodo actual = head.getSiguiente();
+    //     int menor = actual.getDato();
 
-        Nodo second = head.getSiguiente();
+    //     if (isEmpty() == true) {
+    //         JOptionPane.showMessageDialog(null, "Lista vacia");
+    //     }
 
-        if (second == null) {
-            JOptionPane.showMessageDialog(null, "there is no second node");
-            return;
-        } else {
-            Nodo aux = second.getSiguiente().getSiguiente();
-            second.setSiguiente(aux);
+    //     while (actual != null) {
+    //         if (menor % 2 != 0) {
+    //             ant.setAnt(null);
+    //             ant.setAnt(ant);
+    //         } else {
+    //             Actual = Actual.getLiga();
 
-            if (aux != null) {
-                aux.setAnterior(second);
-            }
-        }
-    }
+    //             int Nuevo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un dato"));
+    //             while (Cab != null) {
+    //                 Nodo segundo = new Nodo(Nuevo);
+    //                 Cab.setLiga(segundo);
+    //                 segundo.setAnt(Cab);
+    //             }
+    //         }
+    //     }
+    // }
 }

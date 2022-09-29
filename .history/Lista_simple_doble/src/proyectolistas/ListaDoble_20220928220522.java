@@ -9,10 +9,10 @@ public class ListaDoble {
     private Nodo tail;
     private int size;
 
-    public ListaDoble() {
-        this.head = this.tail = null;
+    public ListaDoble(){
+        this.head=this.tail = null;
 
-        int[] elm = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int [] elm = {1,2,3,4,5,6,7,8,9,10};
         this.llenarLista(elm);
     }
 
@@ -78,7 +78,7 @@ public class ListaDoble {
 
         }
     }
-
+    
     public void insertarBeforeSecond(int dato) {
         if (isEmpty() == true) {
             JOptionPane.showMessageDialog(null, "Lista vacia");
@@ -165,26 +165,5 @@ public class ListaDoble {
         aux.setAnterior(nuevo);
         secondLast.setSiguiente(nuevo);
         size++;
-    }
-
-    public void deleteAfterSecond() {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Empty List");
-            return;
-        }
-
-        Nodo second = head.getSiguiente();
-
-        if (second == null) {
-            JOptionPane.showMessageDialog(null, "there is no second node");
-            return;
-        } else {
-            Nodo aux = second.getSiguiente().getSiguiente();
-            second.setSiguiente(aux);
-
-            if (aux != null) {
-                aux.setAnterior(second);
-            }
-        }
     }
 }

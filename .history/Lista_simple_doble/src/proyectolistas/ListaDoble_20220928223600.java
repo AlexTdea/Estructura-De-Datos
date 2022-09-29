@@ -168,23 +168,11 @@ public class ListaDoble {
     }
 
     public void deleteAfterSecond() {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Empty List");
-            return;
-        }
-
         Nodo second = head.getSiguiente();
 
         if (second == null) {
-            JOptionPane.showMessageDialog(null, "there is no second node");
-            return;
-        } else {
-            Nodo aux = second.getSiguiente().getSiguiente();
-            second.setSiguiente(aux);
-
-            if (aux != null) {
-                aux.setAnterior(second);
-            }
+            // display there is no second node
+            
         }
     }
 }

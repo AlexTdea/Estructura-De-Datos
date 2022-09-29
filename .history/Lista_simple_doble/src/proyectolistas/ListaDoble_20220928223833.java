@@ -175,16 +175,9 @@ public class ListaDoble {
 
         Nodo second = head.getSiguiente();
 
+
         if (second == null) {
             JOptionPane.showMessageDialog(null, "there is no second node");
-            return;
-        } else {
-            Nodo aux = second.getSiguiente().getSiguiente();
-            second.setSiguiente(aux);
-
-            if (aux != null) {
-                aux.setAnterior(second);
-            }
         }
     }
 }
