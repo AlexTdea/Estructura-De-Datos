@@ -23,20 +23,17 @@ public class ProyectoListas {
                     ls.show();
                     break;
                 case 2:
-                    ls.pregunta1();
                     break;
                 case 3:
-                    ls.pregunta2();
                     break;
                 case 4:
-                    ls.pregunta3();
                     break;
                 case 5:
-                    ls.pregunta4();
                     break;
                 case 0:
                     System.exit(0);
                     break;
+
             }
         } while (opcion != 0);
     }

@@ -3,6 +3,8 @@ package proyectolistas;
 
 import javax.swing.JOptionPane;
 
+import javafx.scene.Node;
+
 public class ListaDoble {
     // define variables
     private Nodo head;
@@ -12,118 +14,8 @@ public class ListaDoble {
     public ListaDoble() {
         this.head = this.tail = null;
 
-        // int[] elm = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        // this.llenarLista(elm);
-
-        int flag = 0;
-        int count = 0;
-        while (flag == 0) {
-            insertar(Integer.parseInt(JOptionPane.showInputDialog(null, "inserte dato en posicion " + count)));
-            count++;
-            flag = JOptionPane.showConfirmDialog(null, "desea ingresar otro dato?");
-        }
-    }
-
-    // primer pregunta
-    public void pregunta1() {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
-            return;
-        }
-
-        Nodo actual = head.getSiguiente(); // NULL
-        int menor = head.getDato(); // 1
-        while (actual != null) {
-            if (actual.getDato() < menor) {
-                menor = actual.getDato();
-            }
-            actual = actual.getSiguiente();
-        }
-
-        if (menor % 2 != 0) {
-            this.eliminarPenultimo();
-        } else {
-            int nuevoDato = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un dato"));
-            this.insertarBeforeSecond(nuevoDato);
-        }
-    }
-
-    public void pregunta2() {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
-            return;
-        }
-        Nodo actual = head.getSiguiente();
-        int menor = head.getDato();
-        while (actual != null) {
-            if (actual.getDato() < menor) {
-                menor = actual.getDato();
-            }
-            actual = actual.getSiguiente();
-        }
-
-        if (menor % 2 == 0) {
-            int Nuevodato2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo dato"));
-            insertarBeforeSecond(Nuevodato2);
-        } else {
-            deleteSecondLast();
-        }
-    }
-
-    // tercer pregunta
-    public void pregunta3() {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
-            return;
-        }
-        Nodo actual = head.getSiguiente();
-        int menor = head.getDato();
-        while (actual != null) {
-            if (actual.getDato() < menor) {
-                menor = actual.getDato();
-            }
-            actual = actual.getSiguiente();
-        }
-
-        if (menor % 2 != 0) {
-
-            deleteSecondLast();
-        } else {
-            int Nuevodato3 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo dato"));
-            insertAfterSecond(Nuevodato3);
-        }
-    }
-
-    // cuarta pregunta
-    public void pregunta4() {
-        if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
-            return;
-        }
-        Nodo actual = head.getSiguiente();
-        int menor = head.getDato();
-        while (actual != null) {
-            if (actual.getDato() < menor) {
-                menor = actual.getDato();
-            }
-            actual = actual.getSiguiente();
-        }
-
-        if (menor % 2 == 0) {
-            int Nuevodato4 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo dato"));
-
-            insertAfterSecondLast(Nuevodato4);
-        } else {
-            deleteAfterSecond();
-        }
-    }
-
-    public boolean isEmpty() {
-        return this.head == null;
-    }
-
-    public void show() {
-        JOptionPane.showMessageDialog(null, this.toString());
+        int[] elm = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        this.llenarLista(elm);
     }
 
     @Override
@@ -142,7 +34,16 @@ public class ListaDoble {
         return list;
     }
 
-    // getters
+    public boolean isEmpty() {
+        return this.head == null;
+    }
+
+    public void show() {
+        JOptionPane.showMessageDialog(null, this.toString());
+    }
+
+
+    // getters 
     public Nodo getHead() {
         return head;
     }
@@ -167,8 +68,93 @@ public class ListaDoble {
     public void setSize(int size) {
         this.size = size;
     }
+    // Methods
+    public void pregunta1(int dato) {
+        if (isEmpty() == true) {
+            JOptionPane.showMessageDialog(null, "Lista vacia");
+            return;
+        }
 
-    // Private Methods
+        Nodo actual = head.getSiguiente(); // NULL
+        int menor = head.getDato(); // 1
+        while (actual != null) {
+            if (actual.getDato() < menor) {
+                menor = actual.getDato();
+            }
+            actual = actual.getSiguiente();
+        }
+
+        if (menor % 2 != 0) {
+            this.eliminarPenultimo();
+        } else {
+            int nuevoDato = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un dato"));
+            this.insertarBeforeSecond(nuevoDato);
+        }
+    }
+
+    public void pregunta2(int dato) {
+        if (isEmpty() == true) {
+            JOptionPane.showMessageDialog(null, "Lista vacia");
+            return;
+        }
+        Nodo actual = head.getSiguiente();
+        int menor = head.getDato();
+        while (actual != null) {
+            if (actual.getDato() < menor) {
+                menor = actual.getDato();
+            }
+            actual = actual.getSiguiente();
+        }
+
+        if (menor % 2 == 0) {
+            insertarBeforeSecond(dato);
+        }else {
+            deleteSecondLast();
+        }
+    }
+
+    public void pregunta3(int dato) {
+        if (isEmpty() == true) {
+            JOptionPane.showMessageDialog(null, "Lista vacia");
+            return;
+        }
+        Nodo actual = head.getSiguiente();
+        int menor = head.getDato();
+        while (actual != null) {
+            if (actual.getDato() < menor) {
+                menor = actual.getDato();
+            }
+            actual = actual.getSiguiente();
+        }
+
+        if (menor % 2 != 0) {
+            deleteSecondLast();
+        }else {
+            insertAfterSecond(dato);
+        }
+    }
+
+    public void pregunta4(int dato) {
+        if (isEmpty() == true) {
+            JOptionPane.showMessageDialog(null, "Lista vacia");
+            return;
+        }
+        Nodo actual = head.getSiguiente();
+        int menor = head.getDato();
+        while (actual != null) {
+            if (actual.getDato() < menor) {
+                menor = actual.getDato();
+            }
+            actual = actual.getSiguiente();
+        }
+
+        if (menor % 2 == 0) {
+            insertAfterSecondLast(dato);
+        }else {
+            deleteAfterSecond();
+        }
+    }
+
     private void insertarBeforeSecond(int dato) {
         if (isEmpty() == true) {
             JOptionPane.showMessageDialog(null, "Lista vacia");
@@ -200,23 +186,14 @@ public class ListaDoble {
 
         Nodo ultimo = head;
         Nodo penultimo = null;
-
         while (ultimo.getSiguiente() != null) {
             penultimo = ultimo;
             ultimo = ultimo.getSiguiente();
         }
 
         if (penultimo != null) {
-            if (penultimo.getAnterior() == null) { 
-                ultimo.setAnterior(null);
-                head = ultimo;
-            } else {
-                Nodo aux = penultimo.getAnterior();
-                ultimo.setAnterior(aux);
-                aux.setSiguiente(ultimo);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "no existe penultimo");
+            Nodo aux = penultimo.getAnterior();
+            aux.setSiguiente(ultimo);
         }
     }
 
@@ -239,14 +216,14 @@ public class ListaDoble {
         }
     }
 
-    private void insertAfterSecondLast(int dato) {
+    private void insertAfterSecondLast(int data) {
         if (isEmpty() == true) {
             JOptionPane.showMessageDialog(null, "List empty");
         }
 
         Nodo aux = head;
         Nodo secondLast = null;
-        Nodo nuevo = new Nodo(dato);
+        Nodo nuevo = new Nodo(data);
 
         while (aux.getSiguiente() != null) {
             secondLast = aux.getAnterior();
@@ -266,17 +243,16 @@ public class ListaDoble {
         size++;
     }
 
-    // eliminar despues del segundo (cuarto metodo)
     private void deleteAfterSecond() {
         if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
+            JOptionPane.showMessageDialog(null, "Empty List");
             return;
         }
 
         Nodo second = head.getSiguiente();
 
         if (second == null) {
-            JOptionPane.showMessageDialog(null, "No hay segundo nodo");
+            JOptionPane.showMessageDialog(null, "there is no second node");
             return;
         } else {
             Nodo aux = second.getSiguiente().getSiguiente();
@@ -288,10 +264,9 @@ public class ListaDoble {
         }
     }
 
-    // eliminar segundo de la lista
     private void deleteSecondLast() {
         if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
+            JOptionPane.showMessageDialog(null, "Empty List");
             return;
         }
 
@@ -314,10 +289,9 @@ public class ListaDoble {
         }
     }
 
-    // insertar antes del segundo
     private void insertAfterSecond(int dato) {
         if (isEmpty() == true) {
-            JOptionPane.showMessageDialog(null, "Lista vacia");
+            JOptionPane.showMessageDialog(null, "Empty List");
             return;
         }
 

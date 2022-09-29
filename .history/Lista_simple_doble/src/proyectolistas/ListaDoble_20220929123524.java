@@ -18,7 +18,7 @@ public class ListaDoble {
         int flag = 0;
         int count = 0;
         while (flag == 0) {
-            insertar(Integer.parseInt(JOptionPane.showInputDialog(null, "inserte dato en posicion " + count)));
+            insertar(Integer.parseInt(JOptionPane.showInputDialog(null, "inserte dato en posicion" + count)));
             count++;
             flag = JOptionPane.showConfirmDialog(null, "desea ingresar otro dato?");
         }

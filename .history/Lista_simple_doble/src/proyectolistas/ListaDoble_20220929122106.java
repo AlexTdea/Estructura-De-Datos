@@ -18,8 +18,8 @@ public class ListaDoble {
         int flag = 0;
         int count = 0;
         while (flag == 0) {
-            insertar(Integer.parseInt(JOptionPane.showInputDialog(null, "inserte dato en posicion " + count)));
-            count++;
+            insertar(Integer.parseInt(JOptionPane.showInputDialog(null, "inserte dato en posicion" + count)));
+
             flag = JOptionPane.showConfirmDialog(null, "desea ingresar otro dato?");
         }
     }
@@ -207,6 +207,7 @@ public class ListaDoble {
         }
 
         if (penultimo != null) {
+
             if (penultimo.getAnterior() == null) { 
                 ultimo.setAnterior(null);
                 head = ultimo;
