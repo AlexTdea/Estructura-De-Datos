@@ -1,15 +1,14 @@
-
 package proyectolistas;
 
 import javax.swing.JOptionPane;
 
-public class ListaDoble {
+public class DoblementeLigada{
     // define variables
     private Nodo head;
     private Nodo tail;
     private int size;
 
-    public ListaDoble() {
+    public DoblementeLigada() {
         this.head = this.tail = null;
 
         // int[] elm = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -224,14 +223,46 @@ public class ListaDoble {
         Nodo nuevo = new Nodo(dato);
 
         if (isEmpty() == true) {
+            
             head = tail = nuevo;
+            
         } else {
+         int flag = 0;
+        int count = 0;
+        while (flag != 0) {
+            insertar(Integer.parseInt(JOptionPane.showInputDialog(null, "inserte dato en posicion " + count)));
+            count++;
+            flag = JOptionPane.showConfirmDialog(null, "desea ingresar otro dato?");
+        }
             tail.setSiguiente(nuevo);
             nuevo.setAnterior(tail);
             tail = nuevo;
         }
         size++;
     }
+    public void InsertarPrincipio(int dato){
+        Nodo NuevoD= new Nodo(dato);
+        if (isEmpty() == true) {
+            head=tail=NuevoD;
+        }else {
+            int flag = 0;
+        int count = 0;
+        while (flag != 0) {
+            insertar(Integer.parseInt(JOptionPane.showInputDialog(null, "inserte dato en posicion " + count)));
+            count++;
+            flag = JOptionPane.showConfirmDialog(null, "desea ingresar otro dato?");
+        } 
+        
+   
+   
+   NuevoD.setSiguiente(head);
+   NuevoD.setAnterior(tail);   
+   head=NuevoD;
+        
+    }size++;
+    }
+    
+        
 
     public void llenarLista(int[] data) {
         for (int i = 0; i < data.length; i++) {

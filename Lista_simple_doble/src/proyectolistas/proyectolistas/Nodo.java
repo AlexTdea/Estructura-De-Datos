@@ -1,4 +1,3 @@
-
 package proyectolistas;
 
 public class Nodo {
@@ -38,3 +37,4 @@ public class Nodo {
     }
 
 }
+
